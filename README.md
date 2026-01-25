@@ -1,33 +1,23 @@
-# 🌤️ Weather Forecast Web App
+````md
+# 🌤 Weather Application
 
-A clean and user-friendly weather forecast web application built using **HTML, CSS, and JavaScript**, powered by the **OpenWeatherMap API**.  
-The app displays current weather information and a multi-day forecast with dynamic weather icons.
+A simple and responsive weather application that allows users to check real-time weather information for any city using a public weather API. The project is beginner-friendly and built with clean structure and readable code.
 
 ---
 
 ## 🚀 Features
 
-- 🔍 Search weather by city name  
-- 🌡️ Displays current temperature and weather condition  
-- 📅 Multi-day forecast (daily at 12:00 PM)  
-- 🖼️ Dynamic weather icons based on weather conditions  
-- ⚡ Simple, fast, and responsive UI  
+- Search weather by city name  
+- Displays temperature, humidity, and weather conditions  
+- Real-time data using Weather API  
+- Clean and responsive UI  
+- Error handling for invalid city names  
 
 ---
 
-## 🛠️ Technologies Used
+## 🏗 Project Structure
 
-- HTML5  
-- CSS3  
-- JavaScript (ES6)  
-- OpenWeatherMap API  
-
----
-
-## 📂 Project Structure
-
-```
-
+```bash
 weather-app/
 │
 ├── index.html
@@ -51,38 +41,52 @@ weather-app/
 
 ---
 
-## ⚙️ How to Run the Project
+## 🏃 How to Run the Project
 
-1. Clone the repository:
+1. Clone this repository:
+
    ```bash
-   git clone https://github.com/NithiCreate/weather-app.git
-````
+   git clone https://github.com/your-username/weather-app.git
+   ```
 
-2. Open the project folder
-3. Open `index.html` in any modern web browser
+2. Open the project folder:
+
+   ```bash
+   cd weather-app
+   ```
+
+3. Open `index.html` in your browser
+   **OR**
+   Use Live Server in VS Code.
 
 ---
 
 ## 🔑 API Key Configuration
 
-This project uses the OpenWeatherMap API.
+1. Create a free account on OpenWeatherMap.
+2. Generate your API key.
+3. Open `script.js`.
+4. Replace the placeholder with your API key:
 
-1. Create a free account at: [https://openweathermap.org/](https://openweathermap.org/)
-2. Generate an API key
-3. Replace the API key in the JavaScript file:
-
-   ```js
-   const apiKey = "YOUR_API_KEY"
-   ```
+```js
+const API_KEY = "YOUR_API_KEY_HERE";
+```
 
 ---
 
 ## 📌 Future Enhancements
 
-* 🌍 Location-based weather detection
-* 📱 Improved mobile responsiveness
-* 🌙 Dark mode support
-* 📊 Hourly weather forecast
+* Add hourly and weekly forecast
+* Detect user’s location automatically
+* Improve UI with animations
+* Add dark/light mode
 
 ---
+
+## 🛠 Technologies Used
+
+* HTML
+* CSS
+* JavaScript
+* Weather API
 
