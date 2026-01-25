@@ -1,23 +1,33 @@
-````md
-# 🌤 Weather Application
+# 🌤️ Weather Forecast Web App
 
-A simple and responsive weather application that allows users to check real-time weather information for any city using a public weather API. The project is beginner-friendly and built with clean structure and readable code.
+A clean and user-friendly weather forecast web application built using **HTML, CSS, and JavaScript**, powered by the **OpenWeatherMap API**.  
+The app displays current weather information and a multi-day forecast with dynamic weather icons.
 
 ---
 
 ## 🚀 Features
 
-- Search weather by city name  
-- Displays temperature, humidity, and weather conditions  
-- Real-time data using Weather API  
-- Clean and responsive UI  
-- Error handling for invalid city names  
+- 🔍 Search weather by city name  
+- 🌡️ Displays current temperature and weather condition  
+- 📅 Multi-day forecast (daily at 12:00 PM)  
+- 🖼️ Dynamic weather icons based on weather conditions  
+- ⚡ Simple, fast, and responsive UI  
 
 ---
 
-## 🏗 Project Structure
+## 🛠️ Technologies Used
 
-```bash
+- HTML5  
+- CSS3  
+- JavaScript (ES6)  
+- OpenWeatherMap API  
+
+---
+
+## 📂 Project Structure
+
+```
+
 weather-app/
 │
 ├── index.html
