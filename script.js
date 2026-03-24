@@ -1,3 +1,5 @@
+let currentTheme = 'default';
+
 const cityInput = document.querySelector('.city-input')
 const searchBtn = document.querySelector('.search-btn')
 
@@ -45,13 +47,20 @@ async function getFetchData(endPoint, city) {
 }
 
 function getWeatherIcon(id) {
-    if (id <= 232) return 'thunderstorm.svg'
-    if (id <= 321) return 'drizzle.svg'
-    if (id <= 531) return 'rain.svg'
-    if (id <= 622) return 'snow.svg'
-    if (id <= 781) return 'atmosphere.svg'
-    if (id <= 800) return 'clear.svg'
-    else return 'clouds.svg'
+    let icon = '';
+
+    if (id <= 232) icon = 'thunderstorm';
+    else if (id <= 321) icon = 'drizzle';
+    else if (id <= 531) icon = 'rain';
+    else if (id <= 622) icon = 'snow';
+    else if (id <= 781) icon = 'atmosphere';
+    else if (id <= 800) icon = 'clear';
+    else icon = 'clouds';
+
+    // 🔥 decide extension based on theme
+    const ext = (currentTheme === 'default') ? 'svg' : 'png';
+
+    return `${icon}.${ext}`;
 }
 
 function getCurrentDate() {
@@ -88,7 +97,8 @@ async function updateWeatherInfo(city) {
 
     currentDateTxt.textContent = getCurrentDate()
 
-    weatherSummaryImg.src = `assets/weather/${getWeatherIcon(id)}`
+    weatherSummaryImg.src =
+    `assets/${currentTheme}/weather/${getWeatherIcon(id)}`
 
     await updateForecastsInfo(city)
     showDisplaySection(weatherInfoSection)
@@ -129,7 +139,7 @@ const dateResult = dateTaken.toLocaleDateString('en-US', dateOption)
     const forecastItem = `
         <div class="forecast-item">
             <h5 class="forecast-item-date regular-txt">${dateResult}</h5>
-            <img src="assets/weather/${getWeatherIcon(id)}" class="forecast-item-img">
+            <img src="assets/${currentTheme}/weather/${getWeatherIcon(id)}" class="forecast-item-img">
             <h5 class="forecast-item-temp">${Math.round(temp)} °C</h5> 
         </div>
     `
@@ -142,3 +152,48 @@ function showDisplaySection(section) {
         .forEach(section => section.style.display = 'none')
     section.style.display = 'flex'
 }
+
+function updateThemeAssets() {
+    document.body.style.backgroundImage = `url('assets/${currentTheme}/bg.jpg')`;
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundRepeat = "no-repeat";
+
+    document.getElementById("search-img").src =
+        `assets/${currentTheme}/message/search-city.png`;
+
+    document.getElementById("notfound-img").src =
+        `assets/${currentTheme}/message/not-found.png`;
+}
+
+function setTheme(theme) {
+    currentTheme = theme;
+
+    document.getElementById("theme-style").href = `style-${theme}.css`;
+
+    updateThemeAssets();
+
+    // Refresh weather UI if already loaded
+    if (weatherInfoSection.style.display !== "none") {
+        updateWeatherInfo(countryTxt.textContent);
+    }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    updateThemeAssets();
+});
+
+
+const themeToggleBtn = document.getElementById("theme-toggle-btn");
+const themeOptions = document.getElementById("theme-options");
+
+themeToggleBtn.addEventListener("click", () => {
+    themeOptions.style.display =
+        themeOptions.style.display === "block" ? "none" : "block";
+});
+
+document.addEventListener("click", (e) => {
+    if (!themeToggleBtn.contains(e.target) && !themeOptions.contains(e.target)) {
+        themeOptions.style.display = "none";
+    }
+});
