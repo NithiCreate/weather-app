@@ -1,5 +1,7 @@
 # 🌤️ Weather Forecast Web App
 
+Live Demo: https://nithicreate.github.io/weather-app/
+
 A clean and user-friendly weather forecast web application built using **HTML, CSS, and JavaScript**, powered by the **OpenWeatherMap API**.  
 The app displays current weather information and a multi-day forecast with dynamic weather icons.
 
